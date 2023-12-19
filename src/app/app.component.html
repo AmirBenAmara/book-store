@@ -1,5 +1,6 @@
-<main class="main">
-  <table class="table">
+<div class="container mt-4">
+  <h2>Book List</h2>
+  <table class="table table-bordered mt-3">
     <thead>
       <tr>
         <th>Title</th>
@@ -8,19 +9,14 @@
         <th>ISBN</th>
       </tr>
     </thead>
-    <tbody class="table__body">
-      <tr>
-        <td>OCP: Oracle9i Certification Kit</td>
-        <td>Chip Dawes, Biju Thomas, Doug Stuns, Matthew Weishan, Joseph C. Johnson</td>
-        <td>Sybex</td>
-        <td>0782140661</td>
-      </tr>
-      <tr>
-        <td>SQL Server 2000 for Experienced DBA&apos;s</td>
-        <td>Brian Knight</td>
-        <td>McGraw-Hill Osborne Media</td>
-        <td>0072227885</td>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.name }}</td>
+        <td><span *ngFor="let author of book.author">{{ author.name }}</span> </td>
+        <td><span *ngFor="let publisher of book.publisher">{{ publisher.name }}</span> </td>
+        <td>{{ book.isbn }}</td>
+        <!-- other details... -->
       </tr>
     </tbody>
   </table>
-</main>
+</div>
