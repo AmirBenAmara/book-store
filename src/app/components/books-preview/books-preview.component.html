@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>Book List</h2>
+  <!-- <button mat-raised-button color="primary" (click)="openAddBookDialog()">Add Book</button> -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover mt-3">
+      <thead class="thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Author(s)</th>
+          <th>Publisher(s)</th>
+          <th>ISBN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books" (click)="selectBook(book.id)">
+          <td>{{ book.name }}</td>
+          <td>
+            <span *ngFor="let author of book.author; let i = index">
+              {{ author.name }}<span *ngIf="i < book.author.length - 1">, </span>
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let publisher of book.publisher; let i = index">
+              {{ publisher.name }}<span *ngIf="i < book.publisher.length - 1">, </span>
+            </span>
+          </td>
+          <td>{{ book.isbn }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

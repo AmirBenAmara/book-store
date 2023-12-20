@@ -9,9 +9,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BooksPreviewComponent } from './components/books-preview/books-preview.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BooksPreviewComponent, BookDetailComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([]),
@@ -22,8 +26,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule,],
+    ReactiveFormsModule,
+    AppRoutingModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

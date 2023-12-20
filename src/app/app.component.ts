@@ -11,16 +11,4 @@ import { BookService } from './services/book.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  books: Book[];
-  books$: Observable<Book[]>;
-
-  constructor(private bookServices: BookService) {}
-
-  ngOnInit(): void {
-    this.bookServices.getBooks().subscribe((res) => {
-      this.books = res.data;
-      console.log(this.books);
-    });
-  }
-}
+export class AppComponent {}
