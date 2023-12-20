@@ -13,9 +13,11 @@ import { BooksPreviewComponent } from './components/books-preview/books-preview.
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
+import { AddBookModalComponent } from './components/add-book-modal/add-book-modal.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [AppComponent, BooksPreviewComponent, BookDetailComponent],
+  declarations: [AppComponent, BooksPreviewComponent, BookDetailComponent, AddBookModalComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([]),
@@ -29,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     AppRoutingModule,
     MatIconModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

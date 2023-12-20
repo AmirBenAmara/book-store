@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Add New Book</h2>
+<mat-dialog-content>
+  <form [formGroup]="addBookForm" class="book-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="addBookForm.get('name')?.errors"> Name must be at least 3 characters. </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn" />
+      <mat-error *ngIf="addBookForm.get('isbn')?.errors"> ISBN is required. </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tags</mat-label>
+      <input matInput formControlName="tags" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number" />
+      <mat-error *ngIf="addBookForm.get('price')?.errors"> Price must be a positive number. </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Authors</mat-label>
+      <mat-select formControlName="authors" multiple>
+        <mat-option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="addBookForm.get('authors')?.errors"> Please select at least one author. </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Publishers</mat-label>
+      <mat-select formControlName="publishers" multiple>
+        <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">{{
+          publisher.name
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="addBookForm.get('publishers')?.errors">
+        Please select at least one publisher.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="onSubmit()">Add</button>
+</mat-dialog-actions>
