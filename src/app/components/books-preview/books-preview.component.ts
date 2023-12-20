@@ -13,7 +13,7 @@ import { AddBookModalComponent } from '../add-book-modal/add-book-modal.componen
 })
 export class BooksPreviewComponent implements OnInit {
   books: Book[];
-
+  filteredBooks: Book[];
   constructor(
     private bookServices: BookService,
     private router: Router,
@@ -27,6 +27,7 @@ export class BooksPreviewComponent implements OnInit {
   getBooksList() {
     this.bookServices.getBooks().subscribe((res) => {
       this.books = res.data;
+      this.filteredBooks = res.data;
     });
   }
 
@@ -36,13 +37,29 @@ export class BooksPreviewComponent implements OnInit {
 
   openAddBookModal(): void {
     const dialogRef = this.dialog.open(AddBookModalComponent, {
-      width: '550px',
+      width: '600px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log(result);
       }
+    });
+  }
+
+  onSearchBooks(event: any) {
+    this.filteredBooks = this.books.filter((book) => {
+      return this.isBookMatch(book, event.target.value.toLowerCase());
+    });
+  }
+
+  private isBookMatch(book: any, searchStr: string): boolean {
+    return Object.keys(book).some((key) => {
+      const value = book[key];
+      if (Array.isArray(value)) {
+        return value.some((subItem) => this.isBookMatch(subItem, searchStr));
+      }
+      return typeof value === 'string' && value.toLowerCase().includes(searchStr);
     });
   }
 }

@@ -1,5 +1,7 @@
 .book-form {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+}
+mat-dialog-content {
+  padding: 20px !important;
 }
