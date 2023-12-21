@@ -33,5 +33,4 @@ export class BookDetailComponent implements OnInit {
     });
   }
 
-  goBack() {}
 }

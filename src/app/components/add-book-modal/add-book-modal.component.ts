@@ -30,7 +30,7 @@ export class AddBookModalComponent {
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: [''],
       isbn: ['', Validators.required],
-      tags: this.fb.array([]),
+      tags: [[], Validators.required],
       price: [null, [Validators.required, Validators.min(0)]],
       authors: [[], Validators.required],
       publishers: [[], Validators.required],
@@ -47,14 +47,6 @@ export class AddBookModalComponent {
     this.publisherServices.getPublishers().subscribe((res) => {
       this.publishers = res.data;
     });
-  }
-
-  get tags(): FormArray {
-    return this.addBookForm.get('tags') as FormArray;
-  }
-
-  addTag(tag: string) {
-    this.tags.push(this.fb.control(tag, Validators.required));
   }
 
   onSubmit() {

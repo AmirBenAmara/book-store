@@ -4,7 +4,7 @@ import { AuthorService } from './author.service';
 import { AuthorList } from '../models/author.model';
 import data from '../../mocks/data/authors/index';
 
-describe('PublisherService', () => {
+describe('AuthorService', () => {
   let service: AuthorService;
   let httpMock: HttpTestingController;
 
@@ -27,13 +27,13 @@ describe('PublisherService', () => {
 
   it('should retrieve publishers from the API', () => {
     const mockAuthorList: AuthorList = data;
-
     service.getAuthors().subscribe((author) => {
       expect(author).toEqual(mockAuthorList);
     });
 
-    const request = httpMock.expectOne(`${service.apiUrl}publishers`);
+    const request = httpMock.expectOne(`${service.apiUrl}authors`);
     expect(request.request.method).toBe('GET');
     request.flush(mockAuthorList);
   });
+  
 });
