@@ -2,8 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthorService } from 'src/app/services/author.service';
-import { PublisherService } from 'src/app/services/publisher.service';
 import { AddBookModalComponent } from './add-book-modal.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -60,7 +58,6 @@ describe('AddBookModalComponent', () => {
     expect(isbn.valid).toBeTruthy();
   });
   
-  
   it('should call the submit method when the form is valid', () => {
     spyOn(component, 'onSubmit');
     component.addBookForm.controls['name'].setValue('Test Book');
@@ -74,5 +71,4 @@ describe('AddBookModalComponent', () => {
     expect(component.onSubmit).toHaveBeenCalled();
   });
  
-  
 });

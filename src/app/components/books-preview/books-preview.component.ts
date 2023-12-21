@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 import { AddBookModalComponent } from '../add-book-modal/add-book-modal.component';

@@ -10,7 +10,6 @@ describe('BooksPreviewComponent', () => {
   let component: BooksPreviewComponent;
   let fixture: ComponentFixture<BooksPreviewComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BooksPreviewComponent],
